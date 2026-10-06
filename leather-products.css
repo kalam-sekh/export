@@ -411,3 +411,23 @@
     max-width: 260px;
     margin: 0 auto;
 }
+
+/* ===== FULL-WIDTH LAYOUT =====
+   The export site spans the whole viewport: containers no longer cap
+   at 1200px, and the CTA card stretches edge to edge. */
+.container {
+    max-width: none;
+    width: 100%;
+    padding-left: clamp(20px, 4vw, 72px);
+    padding-right: clamp(20px, 4vw, 72px);
+}
+
+.cta-box {
+    max-width: none;
+    width: 100%;
+}
+
+.footer,
+.footer-bottom {
+    width: 100%;
+}
