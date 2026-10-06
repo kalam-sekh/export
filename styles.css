@@ -3232,3 +3232,83 @@ body {
         height: 58vw;
     }
 }
+
+/* ========================================
+   GLASSMORPHISM THEME + FULL-WIDTH LAYOUT
+   ======================================== */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-bg-hover: rgba(255, 255, 255, 0.09);
+    --glass-bg-strong: rgba(12, 12, 20, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.14);
+    --glass-border-hover: rgba(255, 255, 255, 0.28);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(18px) saturate(160%);
+}
+
+/* Full-width containers */
+.container {
+    max-width: none;
+    width: 100%;
+    padding-left: clamp(20px, 4vw, 72px);
+    padding-right: clamp(20px, 4vw, 72px);
+}
+
+/* Colour glows behind the page so the glass surfaces have depth */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 12% 18%, rgba(99, 102, 241, 0.22), transparent 38%),
+        radial-gradient(circle at 88% 22%, rgba(6, 182, 212, 0.18), transparent 40%),
+        radial-gradient(circle at 50% 92%, rgba(168, 85, 247, 0.18), transparent 42%);
+}
+
+/* Glass surfaces */
+.feature-card, .tech-card, .network-partner-card, .customer-logo-card,
+.lp-product-card, .cta-box, .nav-dropdown, .footer, .btn--outline,
+.nav-link--cta, .section-tag, .stats-marquee, .marquee-stat {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.feature-card, .tech-card, .network-partner-card, .customer-logo-card,
+.lp-product-card, .cta-box, .nav-dropdown {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    box-shadow: var(--glass-shadow);
+}
+
+.feature-card:hover, .tech-card:hover, .network-partner-card:hover,
+.customer-logo-card:hover, .lp-product-card:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
+}
+
+.navbar.scrolled, .navbar.menu-open {
+    background: var(--glass-bg-strong);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+    background: rgba(12, 12, 20, 0.45);
+    border-top: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.btn--outline, .section-tag {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.btn--outline:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
+}
