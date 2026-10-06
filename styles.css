@@ -3384,3 +3384,166 @@ p, li, .section-desc, .hero-subtitle, .footer-col ul li a,
     color: var(--text-primary);
     border-color: rgba(15, 23, 42, 0.18);
 }
+/* ========================================
+   WHITE THEME: HERO, GLASS, CHAT & QUOTE FIXES
+   ======================================== */
+:root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --hero-sub: 215 16% 35%;
+}
+
+/* Dark blurred blob behind the hero headline */
+.hero-foundation__blur {
+    display: none !important;
+}
+
+.hero-foundation__headline-accent {
+    background-image: linear-gradient(to left, #4f46e5, #7c3aed, #0891b2);
+}
+
+.foundation-nav__link--tech {
+    color: #0e7490;
+}
+
+.foundation-nav__divider {
+    background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.12), transparent);
+}
+
+.btn--hero-secondary {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.18);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+    backdrop-filter: none;
+}
+
+.btn--hero-secondary:hover {
+    background: #f8fafc;
+    border-color: rgba(15, 23, 42, 0.3);
+}
+
+.liquid-glass {
+    background: rgba(15, 23, 42, 0.04);
+    box-shadow: inset 0 1px 1px rgba(15, 23, 42, 0.06);
+    backdrop-filter: none;
+}
+
+.liquid-glass::before {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.14) 0%, rgba(15, 23, 42, 0.04) 20%, rgba(15, 23, 42, 0) 40%, rgba(15, 23, 42, 0) 60%, rgba(15, 23, 42, 0.04) 80%, rgba(15, 23, 42, 0.14) 100%);
+}
+
+/* Floating support chat (styles injected by script.js) */
+.chat-tooltip {
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 23, 42, 0.1) !important;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14) !important;
+    color: var(--text-primary);
+}
+
+.chat-tooltip::after {
+    background: #ffffff !important;
+    border-right-color: rgba(15, 23, 42, 0.1) !important;
+    border-bottom-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+.chat-tooltip-title {
+    color: #4f46e5 !important;
+}
+
+.chat-tooltip-close {
+    color: #64748b !important;
+}
+
+.chat-tooltip-close:hover {
+    color: #0f172a !important;
+}
+
+.chat-message.system {
+    color: #0f172a !important;
+}
+
+.chat-message.small {
+    color: #475569 !important;
+}
+
+.chat-option {
+    background: #f8fafc !important;
+    border-color: rgba(15, 23, 42, 0.08) !important;
+    color: #0f172a !important;
+}
+
+.chat-option:hover {
+    background: #eef2ff !important;
+    border-color: rgba(79, 70, 229, 0.3) !important;
+}
+
+.chat-input textarea {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.14) !important;
+    color: #0f172a !important;
+}
+
+/* Request a Quote modal (styles injected by script.js) */
+.quote-modal-overlay {
+    background: rgba(15, 23, 42, 0.35) !important;
+}
+
+.quote-modal {
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 30px 80px rgba(15, 23, 42, 0.18) !important;
+}
+
+.quote-modal__close {
+    background: #f1f5f9 !important;
+    border-color: rgba(15, 23, 42, 0.1) !important;
+    color: #475569 !important;
+}
+
+.quote-modal__close:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+.quote-modal__title,
+.quote-modal__success h3 {
+    color: #0f172a !important;
+}
+
+.quote-modal__subtitle,
+.quote-modal__success p {
+    color: #475569 !important;
+}
+
+.quote-form__field label {
+    color: #334155 !important;
+}
+
+.quote-form__field input,
+.quote-form__field textarea,
+.quote-form__field select {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.14) !important;
+    color: #0f172a !important;
+}
+
+.quote-form__field input::placeholder,
+.quote-form__field textarea::placeholder {
+    color: #94a3b8 !important;
+}
+
+.quote-form__field select option {
+    background: #ffffff !important;
+    color: #0f172a !important;
+}
+
+.quote-form__note {
+    color: #64748b !important;
+}
+
+/* Hero badge: readable text on the white theme */
+.hero-badge {
+    color: #4f46e5;
+    background: rgba(99, 102, 241, 0.08);
+    border-color: rgba(99, 102, 241, 0.22);
+}
