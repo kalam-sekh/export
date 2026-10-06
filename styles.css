@@ -3312,3 +3312,75 @@ body::before {
     background: var(--glass-bg-hover);
     border-color: var(--glass-border-hover);
 }
+
+/* ========================================
+   WHITE BACKGROUND THEME
+   ======================================== */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f8fafc;
+    --surface: #f8fafc;
+    --border: rgba(15, 23, 42, 0.08);
+    --border-hover: rgba(15, 23, 42, 0.16);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-bg-hover: rgba(255, 255, 255, 0.97);
+    --glass-bg-strong: rgba(255, 255, 255, 0.88);
+    --glass-border: rgba(15, 23, 42, 0.08);
+    --glass-border-hover: rgba(15, 23, 42, 0.16);
+    --glass-shadow: 0 8px 28px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+html, body {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: var(--text-primary);
+}
+
+/* Remove the dark video / canvas / glow layers */
+.site-bg-media, #particleCanvas, .cursor-dot, .cursor-ring,
+body::before, .hero-grid-bg, .hero-glow, .particle-canvas {
+    display: none !important;
+}
+
+/* Dark sections and hero areas become white */
+.section--dark, .section--tech, .lp-hero, .hero, .stats-marquee,
+.section-cta, .footer, .footer__inner, .hero-foundation, .navbar,
+.navbar.scrolled, .navbar.menu-open {
+    background: #ffffff !important;
+}
+.section--dark, .section--tech, .footer, .stats-marquee {
+    background: #f8fafc !important;
+}
+.navbar.scrolled, .navbar.menu-open {
+    background: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* Text that was hard-coded for dark backgrounds */
+h1, h2, h3, h4, h5, h6, .logo-text, .nav-link, .footer-col h4,
+.hero-title, .section-title, .hero-stat__number, .marquee-stat__number,
+.feature-card h3, .lp-product-card h3, .cta-box h2 {
+    color: var(--text-primary);
+}
+p, li, .section-desc, .hero-subtitle, .footer-col ul li a,
+.footer-bottom p, .footer-col--brand p, .hero-stat__label,
+.marquee-stat__label, .feature-card p, .lp-product-card p {
+    color: var(--text-secondary);
+}
+.text-gradient, .text-gradient-cyan, .logo-accent {
+    -webkit-text-fill-color: transparent;
+}
+
+/* Keep the frosted look on white */
+.feature-card, .tech-card, .network-partner-card, .customer-logo-card,
+.lp-product-card, .cta-box, .nav-dropdown, .footer {
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+}
+.btn--outline {
+    color: var(--text-primary);
+    border-color: rgba(15, 23, 42, 0.18);
+}
