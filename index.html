@@ -7,6 +7,20 @@
     <title>AKI Export | Premium Handcrafted Leather Products</title>
     <meta name="description" content="AKI Export - Premium handcrafted leather jackets, handbags, purses, wallets, belts and key chains for the global market. Custom and private-label orders welcome.">
     <link rel="canonical" href="https://export.akint.co.in/">
+    <meta name="keywords" content="leather jackets, leather handbags, leather purses, leather wallets, leather belts, key chains, handmade leather India, leather exporter India, private label leather, wholesale leather goods">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AKI Export - AK International",
+        "url": "https://export.akint.co.in/",
+        "logo": "https://export.akint.co.in/company-logo.png",
+        "email": "info@akint.co.in",
+        "telephone": "+91-90518-67095",
+        "address": {"@type": "PostalAddress", "addressLocality": "Kolkata", "addressCountry": "IN"},
+        "description": "Handcrafted leather jackets, handbags, purses, wallets, belts and key chains exported worldwide. Custom and private-label orders welcome."
+    }
+    </script>
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="AKI Export">
     <meta property="og:title" content="AKI Export | Premium Handcrafted Leather Products">
@@ -27,17 +41,6 @@
 </head>
 
 <body class="page-with-home-bg">
-    <div class="site-bg-media" aria-hidden="true">
-        <video
-            id="siteBgVideo"
-            class="site-bg-media__video"
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_065045_c44942da-53c6-4804-b734-f9e07fc22e08.mp4"
-            muted
-            playsinline
-            autoplay
-        ></video>
-    </div>
-
     <!-- Particle Canvas -->
     <canvas id="particleCanvas"></canvas>
 
@@ -57,6 +60,7 @@
                 <li><a href="#why" class="nav-link" data-text="Why Us">Why Us</a></li>
                 <li><a href="#products" class="nav-link" data-text="Products">Products</a></li>
                 <li><a href="#process" class="nav-link" data-text="Process">Process</a></li>
+                <li><a href="#faq" class="nav-link" data-text="FAQ">FAQ</a></li>
                 <li><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
                 <li><a href="#contact" class="nav-link nav-link--cta">Get a Quote</a></li>
             </ul>
@@ -118,6 +122,16 @@
         </div>
     </section>
 
+    <!-- Trust Strip -->
+    <section class="trust-strip reveal" aria-label="Why buyers choose us">
+        <div class="container trust-strip__grid">
+            <div class="trust-item"><i class="fas fa-hand-holding-heart"></i><div><strong>100% Handmade</strong><span>Crafted by skilled artisans</span></div></div>
+            <div class="trust-item"><i class="fas fa-tags"></i><div><strong>Private Label</strong><span>Your brand, your design</span></div></div>
+            <div class="trust-item"><i class="fas fa-earth-americas"></i><div><strong>Worldwide Shipping</strong><span>Export-ready packing</span></div></div>
+            <div class="trust-item"><i class="fas fa-magnifying-glass-check"></i><div><strong>Inspected Before Dispatch</strong><span>Every piece quality-checked</span></div></div>
+        </div>
+    </section>
+
     <!-- Why Our Leather Section -->
     <section class="section section--dark" id="why">
         <div class="container">
@@ -174,6 +188,16 @@
                 <span class="section-tag"><i class="fas fa-bag-shopping"></i> Our Collection</span>
                 <h2 class="section-title">Premium <span class="text-gradient">Leather Products</span></h2>
                 <p class="section-desc">All products are handcrafted. Contact us for custom orders and wholesale inquiries.</p>
+            </div>
+            <div class="product-filter" role="tablist" aria-label="Filter products by category">
+                <button class="product-filter__btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="product-filter__btn" data-filter="Jackets" role="tab" aria-selected="false">Jackets</button>
+                <button class="product-filter__btn" data-filter="Handbags" role="tab" aria-selected="false">Handbags</button>
+                <button class="product-filter__btn" data-filter="Purses" role="tab" aria-selected="false">Purses</button>
+                <button class="product-filter__btn" data-filter="Wallets" role="tab" aria-selected="false">Wallets</button>
+                <button class="product-filter__btn" data-filter="Belts" role="tab" aria-selected="false">Belts</button>
+                <button class="product-filter__btn" data-filter="Key Chains" role="tab" aria-selected="false">Key Chains</button>
+                <button class="product-filter__btn" data-filter="Accessories" role="tab" aria-selected="false">Accessories</button>
             </div>
             <div class="lp-products-grid">
                 <!-- Product 1 -->
@@ -624,22 +648,97 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section-cta" id="contact">
+    <!-- Inquiry Section -->
+    <section class="section-cta inquiry" id="contact">
         <div class="container">
-            <div class="cta-box reveal">
-                <div class="cta-box__glow"></div>
-                <h2>Interested in Our <span class="text-gradient">Leather Products</span>?</h2>
-                <p>Contact us for custom orders, wholesale inquiries, private labeling, and bulk purchases.</p>
-                <div class="cta-box__buttons">
-                    <a href="mailto:info@akint.co.in?subject=Export%20Inquiry" class="btn btn--primary magnetic-btn">
-                        <span>Get a Quote</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+            <div class="inquiry__head reveal">
+                <span class="section-tag"><i class="fas fa-paper-plane"></i> Wholesale &amp; Export</span>
+                <h2 class="section-title">Request a <span class="text-gradient">Quote</span></h2>
+                <p class="section-desc">Tell us what you need. We reply within 24 hours with pricing, minimum order details and lead time.</p>
+            </div>
+            <div class="inquiry__grid">
+                <form class="inquiry__form reveal" id="inquiryForm" novalidate>
+                    <div class="inquiry__row">
+                        <label>Full name *<input type="text" name="name" required autocomplete="name"></label>
+                        <label>Company<input type="text" name="company" autocomplete="organization"></label>
+                    </div>
+                    <div class="inquiry__row">
+                        <label>Email *<input type="email" name="email" required autocomplete="email"></label>
+                        <label>Phone / WhatsApp<input type="tel" name="phone" autocomplete="tel"></label>
+                    </div>
+                    <div class="inquiry__row">
+                        <label>Country *<input type="text" name="country" required autocomplete="country-name"></label>
+                        <label>Product interest
+                            <select name="product">
+                                <option>Leather Jackets</option>
+                                <option>Handbags</option>
+                                <option>Purses</option>
+                                <option>Wallets</option>
+                                <option>Belts</option>
+                                <option>Key Chains</option>
+                                <option>Custom / Private Label</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+                    </div>
+                    <label>Estimated quantity<input type="text" name="quantity" placeholder="e.g. 200 pieces"></label>
+                    <label>Message<textarea name="message" rows="4" placeholder="Design, colours, sizes, branding, target delivery date..."></textarea></label>
+                    <p class="inquiry__error" id="inquiryError" hidden>Please fill in your name, email and country.</p>
+                    <button type="submit" class="btn btn--primary magnetic-btn"><span>Send Inquiry</span><i class="fas fa-paper-plane"></i></button>
+                    <p class="inquiry__note">Your email app will open with your details ready to send.</p>
+                </form>
+                <aside class="inquiry__side reveal">
+                    <h3>Prefer to talk now?</h3>
+                    <p>Message us on WhatsApp for quick answers on samples, pricing and shipping.</p>
+                    <a class="btn btn--primary magnetic-btn whatsapp-btn" href="https://wa.me/919051867095?text=Hello%2C%20I%27m%20interested%20in%20your%20leather%20products." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>Chat on WhatsApp</span></a>
+                    <a class="inquiry__mail" href="mailto:info@akint.co.in"><i class="fas fa-envelope"></i> info@akint.co.in</a>
+                    <a class="inquiry__mail" href="tel:+919051867095"><i class="fas fa-phone"></i> +91 90518 67095</a>
+                    <p class="inquiry__loc"><i class="fas fa-location-dot"></i> Kolkata, India</p>
+                </aside>
             </div>
         </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq">
+        <div class="container faq__container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-circle-question"></i> Buyer Questions</span>
+                <h2 class="section-title">Frequently <span class="text-gradient">Asked</span></h2>
+            </div>
+            <div class="faq__list reveal">
+                <details open>
+                    <summary>What is the minimum order quantity (MOQ)?</summary>
+                    <p>MOQ depends on the product and whether it is customised. Send us your requirement and we will confirm the MOQ, pricing and lead time for your order.</p>
+                </details>
+                <details>
+                    <summary>Can you make private label or custom designs?</summary>
+                    <p>Yes. We offer private labelling, custom designs, colours, sizes and branding, including your logo on the product and packaging.</p>
+                </details>
+                <details>
+                    <summary>Can I order samples before a bulk order?</summary>
+                    <p>Yes, sample orders can be arranged so you can check quality and finish before committing to a larger order. Contact us to discuss sample terms.</p>
+                </details>
+                <details>
+                    <summary>Do you ship internationally?</summary>
+                    <p>We export worldwide. Freight, customs duties and delivery time depend on your destination country, and we will share a shipping quotation with your order.</p>
+                </details>
+                <details>
+                    <summary>What payment terms do you accept?</summary>
+                    <p>Payment terms are agreed for each order. We discuss advance and balance payment options with you before production starts.</p>
+                </details>
+                <details>
+                    <summary>How do you ensure quality?</summary>
+                    <p>Every piece is handcrafted and checked for stitching, finish, hardware and material before it is packed for dispatch.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a class="whatsapp-float" href="https://wa.me/919051867095?text=Hello%2C%20I%27m%20interested%20in%20your%20leather%20products." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Footer -->
     <footer class="footer">
@@ -663,6 +762,7 @@
                         <li><a href="#why">Why Us</a></li>
                         <li><a href="#products">Products</a></li>
                         <li><a href="#process">Process</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -682,6 +782,7 @@
                         <li><i class="fas fa-location-dot"></i> Kolkata, India</li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:info@akint.co.in">info@akint.co.in</a></li>
                         <li><i class="fas fa-phone"></i> <a href="tel:+919051867095">+91 90518 67095</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/919051867095" target="_blank" rel="noopener">WhatsApp us</a></li>
                     </ul>
                 </div>
             </div>
@@ -692,6 +793,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="enhance.js"></script>
 </body>
 
 </html>
