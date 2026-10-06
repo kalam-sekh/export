@@ -511,3 +511,32 @@ body::before {
     background: var(--glass-bg-hover);
     border-color: var(--glass-border-hover);
 }
+
+/* ===== PRODUCT IMAGE SIZE =====
+   Show each whole product inside a shorter frame instead of
+   cropping it to fill a tall box. */
+.lp-product-card__img-wrap {
+    height: 220px;
+    background: #f4f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lp-product-card__img-wrap img {
+    width: auto;
+    max-width: 78%;
+    height: auto;
+    max-height: 78%;
+    object-fit: contain;
+    margin: auto;
+}
+
+.lp-product-card:hover .lp-product-card__img-wrap img {
+    transform: scale(1.05);
+    filter: brightness(0.85);
+}
+
+@media (max-width: 600px) {
+    .lp-product-card__img-wrap { height: 200px; }
+}
