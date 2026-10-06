@@ -577,15 +577,25 @@ body::before, .hero-grid-bg, .hero-glow, .particle-canvas {
 
 /* Dark sections and hero areas become white */
 .section--dark, .section--tech, .lp-hero, .hero, .stats-marquee,
-.section-cta, .footer, .footer__inner, .hero-foundation, .navbar,
-.navbar.scrolled, .navbar.menu-open {
+.section-cta, .footer, .footer__inner, .hero-foundation {
     background: #ffffff !important;
+}
+
+/* Frosted navbar (matches tech site) */
+.navbar,
+.navbar.scrolled,
+.navbar.menu-open {
+    background: rgba(255, 255, 255, 0.55) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
 }
 .section--dark, .section--tech, .footer, .stats-marquee {
     background: #f8fafc !important;
 }
-.navbar.scrolled, .navbar.menu-open {
-    background: rgba(255, 255, 255, 0.92) !important;
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.72) !important;
 }
 
 /* Text that was hard-coded for dark backgrounds */
