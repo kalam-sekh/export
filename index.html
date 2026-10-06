@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKI Import Export | Leather Products - AK International</title>
+    <meta name="description" content="AKI Import Export - Premium handcrafted leather products. Jackets, handbags, purses, belts & accessories for the global market.">
+    <link rel="shortcut icon" type="image/png" href="logo.png?v=20251110">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png?v=20251110">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png?v=20251110">
+    <link rel="apple-touch-icon" href="logo.png?v=20251110">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="leather-products.css">
+</head>
+
+<body class="page-with-home-bg">
+    <div class="site-bg-media" aria-hidden="true">
+        <video
+            id="siteBgVideo"
+            class="site-bg-media__video"
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_065045_c44942da-53c6-4804-b734-f9e07fc22e08.mp4"
+            muted
+            playsinline
+            autoplay
+        ></video>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="https://akint.co.in/" class="logo">
+                <img src="company-logo.png" alt="AK International Logo" class="logo-img">
+                <span class="logo-text">AK<span class="logo-accent">Int</span></span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="https://akint.co.in/" class="nav-link" data-text="Home">Home</a></li>
+                <li><a href="https://akint.co.in/index.html#about" class="nav-link" data-text="About">About</a></li>
+                <li class="nav-item--dropdown">
+                    <a href="#" class="nav-link" data-text="Products" aria-haspopup="true" aria-expanded="false">Products <i class="fas fa-chevron-down nav-dropdown-arrow"></i></a>
+                    <ul class="nav-dropdown">
+                        <li><a href="https://akint.co.in/ibm.html" class="nav-dropdown__link"><i class="fas fa-building"></i>Integrated Business Management (IBM)</a></li>
+                        <li class="nav-dropdown__divider"></li>
+                        <li><a href="https://akint.co.in/web-development.html" class="nav-dropdown__link"><i class="fas fa-code"></i>Web Development</a></li>
+                        <li class="nav-dropdown__divider"></li>
+                        <li><a href="https://akint.co.in/vehicle-equipment-management.html" class="nav-dropdown__link"><i class="fas fa-truck"></i>Advance Vehicle &amp; Heavy Equipment Management</a></li>
+                        <li class="nav-dropdown__divider"></li>
+                        <li><a href="https://akint.co.in/business-management-light.html" class="nav-dropdown__link"><i class="fas fa-briefcase"></i>Business Management Light</a></li>
+                        <li class="nav-dropdown__divider"></li>
+                        <li><a href="https://akint.co.in/invoice-creation.html" class="nav-dropdown__link"><i class="fas fa-file-invoice"></i>Invoice Creation</a></li>
+                        <li class="nav-dropdown__divider"></li>
+                        <li><a href="https://akint.co.in/inventory-management.html" class="nav-dropdown__link"><i class="fas fa-boxes-stacked"></i>Inventory Management</a></li>
+                        <li class="nav-dropdown__divider"></li>
+                        <li><a href="https://akint.co.in/odoo.html" class="nav-dropdown__link"><i class="fas fa-cubes"></i>Odoo Solutions</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item--dropdown">
+                    <a href="#" class="nav-link" data-text="Our Businesses" aria-haspopup="true" aria-expanded="false">Our Businesses <i class="fas fa-chevron-down nav-dropdown-arrow"></i></a>
+                    <ul class="nav-dropdown">
+                        <li><a href="https://store.akint.co.in/" class="nav-dropdown__link" target="_blank" rel="noopener"><i class="fas fa-cart-shopping"></i>AKI Ecom</a></li>
+                        <li class="nav-dropdown__divider"></li>
+                        <li><a href="index.html" class="nav-dropdown__link active"><i class="fas fa-ship"></i>AKI Export</a></li>
+                        <li class="nav-dropdown__divider"></li>
+                        <li><a href="https://tech.akint.co.in/" class="nav-dropdown__link" target="_blank" rel="noopener"><i class="fas fa-laptop-code"></i>AKI IT</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://akint.co.in/index.html#contact" class="nav-link" data-text="Contact">Contact</a></li>
+                <li><a href="https://akint.co.in/index.html#contact" class="nav-link nav-link--cta">Get a Quote</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Leather Hero Section -->
+    <section class="lp-hero" id="lp-hero">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-glow hero-glow--1"></div>
+        <div class="hero-glow hero-glow--2"></div>
+        <div class="lp-hero__content">
+            <div class="hero-badge reveal">
+                <span class="hero-badge__dot"></span>
+                AKI Import Export Division
+            </div>
+            <h1 class="hero-title reveal">
+                <span class="hero-line">Handcrafted</span>
+                <span class="hero-line hero-line--gradient">Leather</span>
+                <span class="hero-line">Excellence</span>
+            </h1>
+            <p class="hero-subtitle reveal">Premium Jackets &bull; Handbags &bull; Purses &bull; <span class="text-gradient">Belts & Accessories</span></p>
+            <p class="lp-hero__desc reveal">Hand-made with precision and care — sourced and exported globally from India to the world.</p>
+            <div class="hero-buttons reveal">
+                <a href="#products" class="btn btn--primary magnetic-btn">
+                    <span>View Collection</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+                <a href="https://akint.co.in/index.html#contact" class="btn btn--outline magnetic-btn">
+                    <span>Wholesale Inquiry</span>
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+            </div>
+            <div class="hero-stats reveal">
+                <div class="hero-stat">
+                    <span class="hero-stat__number" data-count="500">0</span><span class="hero-stat__plus">+</span>
+                    <span class="hero-stat__label">Products</span>
+                </div>
+                <div class="hero-stat__divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat__number" data-count="50">0</span><span class="hero-stat__plus">+</span>
+                    <span class="hero-stat__label">Countries</span>
+                </div>
+                <div class="hero-stat__divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat__number" data-count="100">0</span><span class="hero-stat__plus">%</span>
+                    <span class="hero-stat__label">Handmade</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="hero-scroll__line"></div>
+        </div>
+    </section>
+
+    <!-- Why Our Leather Section -->
+    <section class="section section--dark" id="why">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-gem"></i> Why Choose Our Leather</span>
+                <h2 class="section-title">Crafted with <span class="text-gradient">Passion</span></h2>
+                <p class="section-desc">Every stitch tells a story. Our artisans combine generations of expertise with contemporary design.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal" data-tilt>
+                    <div class="feature-card__glow"></div>
+                    <div class="feature-card__icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3>100% Handcrafted</h3>
+                    <p>Every product is meticulously handmade by skilled artisans with decades of experience.</p>
+                    <div class="feature-card__number">01</div>
+                </div>
+                <div class="feature-card reveal" data-tilt>
+                    <div class="feature-card__glow"></div>
+                    <div class="feature-card__icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Premium Materials</h3>
+                    <p>We source only the finest genuine leather, ensuring durability and luxurious feel.</p>
+                    <div class="feature-card__number">02</div>
+                </div>
+                <div class="feature-card reveal" data-tilt>
+                    <div class="feature-card__glow"></div>
+                    <div class="feature-card__icon">
+                        <i class="fas fa-earth-americas"></i>
+                    </div>
+                    <h3>Global Export</h3>
+                    <p>Exporting to 50+ countries with reliable logistics and international compliance.</p>
+                    <div class="feature-card__number">03</div>
+                </div>
+                <div class="feature-card reveal" data-tilt>
+                    <div class="feature-card__glow"></div>
+                    <div class="feature-card__icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Custom Orders</h3>
+                    <p>Bespoke designs, private labeling, and bulk manufacturing tailored to your needs.</p>
+                    <div class="feature-card__number">04</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-bag-shopping"></i> Our Collection</span>
+                <h2 class="section-title">Premium <span class="text-gradient">Leather Products</span></h2>
+                <p class="section-desc">All products are handcrafted. Contact us for custom orders and wholesale inquiries.</p>
+            </div>
+            <div class="lp-products-grid">
+                <!-- Product 1 -->
+                <div class="lp-product-card reveal" data-tilt>
+                    <div class="lp-product-card__img-wrap">
+                        <img src="img/ladies.jpg" alt="Ladies Leather Jacket" loading="lazy">
+                        <div class="lp-product-card__overlay">
+                            <div class="lp-product-card__actions">
+                                <a href="https://akint.co.in/index.html#contact" class="lp-product-card__btn magnetic-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Inquire</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lp-product-card__badge">Popular</div>
+                    </div>
+                    <div class="lp-product-card__info">
+                        <div class="lp-product-card__category">Jackets</div>
+                        <h3>Ladies Leather Jacket</h3>
+                        <p>Premium handcrafted leather jackets for ladies with modern styling and superior comfort.</p>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="lp-product-card reveal" data-tilt>
+                    <div class="lp-product-card__img-wrap">
+                        <img src="leather.jpg" alt="Men's Leather Jacket" loading="lazy">
+                        <div class="lp-product-card__overlay">
+                            <div class="lp-product-card__actions">
+                                <a href="https://akint.co.in/index.html#contact" class="lp-product-card__btn magnetic-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Inquire</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lp-product-card__badge">Best Seller</div>
+                    </div>
+                    <div class="lp-product-card__info">
+                        <div class="lp-product-card__category">Jackets</div>
+                        <h3>Men's Leather Jacket</h3>
+                        <p>Stylish handcrafted leather jackets for men with classic design and durable construction.</p>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="lp-product-card reveal" data-tilt>
+                    <div class="lp-product-card__img-wrap">
+                        <img src="img/ak00017.jpg" alt="Ladies Handbag" loading="lazy">
+                        <div class="lp-product-card__overlay">
+                            <div class="lp-product-card__actions">
+                                <a href="https://akint.co.in/index.html#contact" class="lp-product-card__btn magnetic-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Inquire</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lp-product-card__info">
+                        <div class="lp-product-card__category">Handbags</div>
+                        <h3>Ladies Handbag</h3>
+                        <p>Elegant handcrafted leather handbags with spacious interiors and refined aesthetics.</p>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="lp-product-card reveal" data-tilt>
+                    <div class="lp-product-card__img-wrap">
+                        <img src="img/purse_1.jpg" alt="Leather Purse" loading="lazy">
+                        <div class="lp-product-card__overlay">
+                            <div class="lp-product-card__actions">
+                                <a href="https://akint.co.in/index.html#contact" class="lp-product-card__btn magnetic-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Inquire</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lp-product-card__info">
+                        <div class="lp-product-card__category">Purses</div>
+                        <h3>Leather Purse</h3>
+                        <p>Compact handcrafted leather purses perfect for everyday use and special occasions.</p>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="lp-product-card reveal" data-tilt>
+                    <div class="lp-product-card__img-wrap">
+                        <img src="img/belt.jpg" alt="Leather Belt" loading="lazy">
+                        <div class="lp-product-card__overlay">
+                            <div class="lp-product-card__actions">
+                                <a href="https://akint.co.in/index.html#contact" class="lp-product-card__btn magnetic-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Inquire</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lp-product-card__info">
+                        <div class="lp-product-card__category">Belts</div>
+                        <h3>Leather Belt</h3>
+                        <p>Durable handcrafted leather belts with premium buckles and long-lasting quality.</p>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="lp-product-card reveal" data-tilt>
+                    <div class="lp-product-card__img-wrap">
+                        <img src="bag.jpg" alt="Leather Accessories" loading="lazy">
+                        <div class="lp-product-card__overlay">
+                            <div class="lp-product-card__actions">
+                                <a href="https://akint.co.in/index.html#contact" class="lp-product-card__btn magnetic-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Inquire</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lp-product-card__badge">New</div>
+                    </div>
+                    <div class="lp-product-card__info">
+                        <div class="lp-product-card__category">Accessories</div>
+                        <h3>Leather Accessories</h3>
+                        <p>Various handcrafted leather accessories including bags, wallets, and custom items.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-route"></i> How We Work</span>
+                <h2 class="section-title">Our <span class="text-gradient">Process</span></h2>
+                <p class="section-desc">From raw material to your doorstep — transparent and reliable.</p>
+            </div>
+            <div class="lp-process-grid">
+                <div class="lp-process-step reveal">
+                    <div class="lp-process-step__number">01</div>
+                    <div class="lp-process-step__line"></div>
+                    <div class="lp-process-step__content">
+                        <div class="lp-process-step__icon"><i class="fas fa-comments"></i></div>
+                        <h3>Consult & Design</h3>
+                        <p>Share your requirements — we design custom leather products per your specifications.</p>
+                    </div>
+                </div>
+                <div class="lp-process-step reveal">
+                    <div class="lp-process-step__number">02</div>
+                    <div class="lp-process-step__line"></div>
+                    <div class="lp-process-step__content">
+                        <div class="lp-process-step__icon"><i class="fas fa-scissors"></i></div>
+                        <h3>Craft & Quality Check</h3>
+                        <p>Our artisans handcraft each piece, followed by rigorous quality inspection.</p>
+                    </div>
+                </div>
+                <div class="lp-process-step reveal">
+                    <div class="lp-process-step__number">03</div>
+                    <div class="lp-process-step__line"></div>
+                    <div class="lp-process-step__content">
+                        <div class="lp-process-step__icon"><i class="fas fa-box"></i></div>
+                        <h3>Package & Ship</h3>
+                        <p>Secure packaging, full documentation, and reliable shipping to 50+ countries worldwide.</p>
+                    </div>
+                </div>
+                <div class="lp-process-step reveal">
+                    <div class="lp-process-step__number">04</div>
+                    <div class="lp-process-step__content">
+                        <div class="lp-process-step__icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Deliver & Support</h3>
+                        <p>On-time delivery with post-sale support, reorders, and long-term partnerships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Marquee -->
+    <section class="stats-marquee">
+        <div class="stats-marquee__track">
+            <div class="stats-marquee__content">
+                <div class="marquee-stat">
+                    <span class="marquee-stat__number">500+</span>
+                    <span class="marquee-stat__label">Products</span>
+                </div>
+                <div class="marquee-stat__sep">&mdash;</div>
+                <div class="marquee-stat">
+                    <span class="marquee-stat__number">50+</span>
+                    <span class="marquee-stat__label">Countries</span>
+                </div>
+                <div class="marquee-stat__sep">&mdash;</div>
+                <div class="marquee-stat">
+                    <span class="marquee-stat__number">100%</span>
+                    <span class="marquee-stat__label">Handmade</span>
+                </div>
+                <div class="marquee-stat__sep">&mdash;</div>
+                <div class="marquee-stat">
+                    <span class="marquee-stat__number">10+</span>
+                    <span class="marquee-stat__label">Years</span>
+                </div>
+                <div class="marquee-stat__sep">&mdash;</div>
+                <div class="marquee-stat">
+                    <span class="marquee-stat__number">500+</span>
+                    <span class="marquee-stat__label">Products</span>
+                </div>
+                <div class="marquee-stat__sep">&mdash;</div>
+                <div class="marquee-stat">
+                    <span class="marquee-stat__number">50+</span>
+                    <span class="marquee-stat__label">Countries</span>
+                </div>
+                <div class="marquee-stat__sep">&mdash;</div>
+                <div class="marquee-stat">
+                    <span class="marquee-stat__number">100%</span>
+                    <span class="marquee-stat__label">Handmade</span>
+                </div>
+                <div class="marquee-stat__sep">&mdash;</div>
+                <div class="marquee-stat">
+                    <span class="marquee-stat__number">10+</span>
+                    <span class="marquee-stat__label">Years</span>
+                </div>
+                <div class="marquee-stat__sep">&mdash;</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-cta">
+        <div class="container">
+            <div class="cta-box reveal">
+                <div class="cta-box__glow"></div>
+                <h2>Interested in Our <span class="text-gradient">Leather Products</span>?</h2>
+                <p>Contact us for custom orders, wholesale inquiries, private labeling, and bulk purchases.</p>
+                <div class="cta-box__buttons">
+                    <a href="https://akint.co.in/index.html#contact" class="btn btn--primary magnetic-btn">
+                        <span>Get a Quote</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://akint.co.in/" class="btn btn--outline magnetic-btn">
+                        <span>Back to AKI Tech</span>
+                        <i class="fas fa-home"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col--brand">
+                    <div class="footer-logo">
+                        <img src="company-logo.png" alt="AK International Logo" class="logo-img">
+                        <span class="logo-text">AK<span class="logo-accent">Int</span></span>
+                    </div>
+                    <p>Premium handcrafted leather products — jackets, handbags, purses, belts & accessories for the global market.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/ak_int_office/?hl=en" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/ak-international-9188b13ab" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="https://akint.co.in/">Home</a></li>
+                        <li><a href="https://akint.co.in/index.html#about">About Us</a></li>
+                        <li><a href="https://akint.co.in/index.html#services">Tech Services</a></li>
+                        <li><a href="https://akint.co.in/index.html#portfolio">Portfolio</a></li>
+                        <li><a href="https://store.akint.co.in/" target="_blank" rel="noopener">AKI Ecom</a></li>
+                        <li><a href="https://akint.co.in/index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#products">Leather Jackets</a></li>
+                        <li><a href="#products">Handbags & Purses</a></li>
+                        <li><a href="#products">Belts & Accessories</a></li>
+                        <li><a href="https://akint.co.in/index.html#contact">Custom Orders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Businesses</h4>
+                    <ul>
+                        <li><a href="https://store.akint.co.in/" target="_blank" rel="noopener">AKI Ecom</a></li>
+                        <li><a href="index.html">AKI Export</a></li>
+                        <li><a href="https://tech.akint.co.in/" target="_blank" rel="noopener">AKI IT</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-location-dot"></i> Kolkata, India</li>
+                        <li><i class="fas fa-envelope"></i> info@akint.co.in</li>
+                        <li><i class="fas fa-phone"></i> +91 90518 67095</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AK International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
