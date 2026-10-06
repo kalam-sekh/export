@@ -3547,3 +3547,87 @@ p, li, .section-desc, .hero-subtitle, .footer-col ul li a,
     background: rgba(99, 102, 241, 0.08);
     border-color: rgba(99, 102, 241, 0.22);
 }
+/* ========================================
+   WHITE GLASSMORPHISM POLISH
+   ======================================== */
+/* Soft colour washes so the glass surfaces have something to blur */
+html, body {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(99, 102, 241, 0.20), transparent 34%),
+        radial-gradient(circle at 88% 22%, rgba(8, 145, 178, 0.18), transparent 32%),
+        radial-gradient(circle at 50% 78%, rgba(168, 85, 247, 0.14), transparent 36%),
+        #f8fafc !important;
+    background-attachment: fixed !important;
+}
+
+/* Frosted navbar */
+.navbar,
+.navbar.scrolled,
+.navbar.menu-open {
+    background: rgba(255, 255, 255, 0.55) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.72) !important;
+}
+
+/* Mobile menu panel */
+@media (max-width: 1024px) {
+    .nav-menu {
+        background: rgba(255, 255, 255, 0.82) !important;
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        backdrop-filter: blur(24px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+    }
+}
+
+/* Hero: soft light wash behind the headline */
+.hero-foundation {
+    background: radial-gradient(ellipse at 30% 40%, rgba(99, 102, 241, 0.16), transparent 58%) !important;
+}
+
+/* Glass cards */
+.feature-card, .service-card, .tech-card, .contact-card,
+.lp-product-card, .gallery-card, .network-partner-card,
+.customer-logo-card, .cta-box, .nav-dropdown {
+    background: rgba(255, 255, 255, 0.55) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.75) !important;
+    box-shadow: 0 10px 36px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+.feature-card:hover, .service-card:hover, .tech-card:hover,
+.contact-card:hover, .lp-product-card:hover, .gallery-card:hover {
+    background: rgba(255, 255, 255, 0.78) !important;
+    box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Glass stat strip and secondary buttons */
+.stats-marquee, .marquee-stat, .btn--hero-secondary, .btn--outline {
+    background: rgba(255, 255, 255, 0.6) !important;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.btn--hero-secondary {
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* Bottom CTA: dark heading and visible button on the glass panel */
+.cta h2, .cta-box h2, .cta__content h2 {
+    color: #0f172a !important;
+}
+.cta p, .cta-box p, .cta__content p {
+    color: #475569 !important;
+}
+.cta .btn--white, .cta-box .btn--white, .cta__content .btn--white {
+    background: #0f172a !important;
+    color: #ffffff !important;
+}
