@@ -1063,3 +1063,77 @@ p, li, .section-desc, .hero-subtitle, .footer-col ul li a,
         opacity: 1;
     }
 }
+
+/* ===== PRODUCT CARD — FULL-BLEED IMAGE, FLOATING TEXT =====
+   Image fills the whole card; category/title/description float over
+   it on a bottom gradient scrim. Appended last to win the cascade. */
+.lp-product-card {
+    position: relative;
+    height: 420px;
+}
+
+.lp-product-card__img-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: var(--bg-secondary);
+}
+
+.lp-product-card__slides img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    margin: 0;
+}
+
+.lp-product-card__info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 22px 22px 44px;
+    background: linear-gradient(to top,
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.72) 35%,
+        rgba(0, 0, 0, 0.25) 75%,
+        rgba(0, 0, 0, 0) 100%);
+}
+
+.lp-product-card__category {
+    color: var(--cyan);
+}
+
+.lp-product-card__info h3 {
+    color: #fff;
+}
+
+.lp-product-card:hover .lp-product-card__info h3 {
+    color: #fff;
+}
+
+.lp-product-card__info p {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.lp-product-card__dots {
+    bottom: 16px;
+}
+
+.lp-product-card__dot {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.lp-product-card__dot.is-active {
+    background: #fff;
+}
+
+@media (max-width: 600px) {
+    .lp-product-card {
+        height: 360px;
+    }
+}
