@@ -1417,3 +1417,93 @@ serviceCards.forEach(card => {
 
 // ===== CONSOLE MESSAGE =====
 console.log('%c🚀 Welcome to AK International! ', 'background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: white; font-size: 20px; padding: 10px; border-radius: 5px;');
+
+// ===== PRODUCT CARD SWIPEABLE GALLERY =====
+(function () {
+    'use strict';
+
+    function initGallery(wrap) {
+        const slides = wrap.querySelector('.lp-product-card__slides');
+        if (!slides) return;
+        const imgs = Array.from(slides.children);
+        if (imgs.length === 0) return;
+
+        imgs[0].classList.add('is-active');
+        if (imgs.length === 1) return;
+
+        let index = 0;
+
+        const dots = document.createElement('div');
+        dots.className = 'lp-product-card__dots';
+        const dotEls = imgs.map((_, i) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'lp-product-card__dot' + (i === 0 ? ' is-active' : '');
+            dot.setAttribute('aria-label', 'Show image ' + (i + 1) + ' of ' + imgs.length);
+            dot.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                goTo(i);
+            });
+            dots.appendChild(dot);
+            return dot;
+        });
+        wrap.appendChild(dots);
+
+        function goTo(i) {
+            index = (i + imgs.length) % imgs.length;
+            slides.style.transform = 'translateX(-' + (index * 100) + '%)';
+            imgs.forEach((img, j) => img.classList.toggle('is-active', j === index));
+            dotEls.forEach((d, j) => d.classList.toggle('is-active', j === index));
+        }
+
+        let dragging = false;
+        let startX = 0;
+        let deltaX = 0;
+
+        function dragStart(x) {
+            dragging = true;
+            startX = x;
+            deltaX = 0;
+            slides.style.transition = 'none';
+        }
+
+        function dragMove(x) {
+            if (!dragging) return;
+            deltaX = x - startX;
+            slides.style.transform = 'translateX(calc(-' + (index * 100) + '% + ' + deltaX + 'px))';
+        }
+
+        function dragEnd() {
+            if (!dragging) return;
+            dragging = false;
+            slides.style.transition = '';
+            const wrapWidth = wrap.clientWidth || 1;
+            if (Math.abs(deltaX) > wrapWidth * 0.15) {
+                goTo(index + (deltaX < 0 ? 1 : -1));
+            } else {
+                goTo(index);
+            }
+        }
+
+        wrap.addEventListener('touchstart', (e) => dragStart(e.touches[0].clientX), { passive: true });
+        wrap.addEventListener('touchmove', (e) => dragMove(e.touches[0].clientX), { passive: true });
+        wrap.addEventListener('touchend', dragEnd);
+
+        wrap.addEventListener('mousedown', (e) => {
+            if (e.target.closest('.lp-product-card__dot')) return;
+            dragStart(e.clientX);
+        });
+        document.addEventListener('mousemove', (e) => dragMove(e.clientX));
+        document.addEventListener('mouseup', () => dragEnd());
+
+        wrap.addEventListener('click', (e) => {
+            if (Math.abs(deltaX) > 5) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }, true);
+    }
+
+    document.querySelectorAll('.lp-product-card__img-wrap').forEach(initGallery);
+})();
