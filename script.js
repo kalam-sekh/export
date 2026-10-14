@@ -1450,6 +1450,30 @@ console.log('%c🚀 Welcome to AK International! ', 'background: linear-gradient
         });
         wrap.appendChild(dots);
 
+        const nextBtn = document.createElement('button');
+        nextBtn.type = 'button';
+        nextBtn.className = 'lp-product-card__nav lp-product-card__nav--next';
+        nextBtn.setAttribute('aria-label', 'Next image');
+        nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            goTo(index + 1);
+        });
+        wrap.appendChild(nextBtn);
+
+        const prevBtn = document.createElement('button');
+        prevBtn.type = 'button';
+        prevBtn.className = 'lp-product-card__nav lp-product-card__nav--prev';
+        prevBtn.setAttribute('aria-label', 'Previous image');
+        prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            goTo(index - 1);
+        });
+        wrap.appendChild(prevBtn);
+
         function goTo(i) {
             index = (i + imgs.length) % imgs.length;
             slides.style.transform = 'translateX(-' + (index * 100) + '%)';
