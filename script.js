@@ -576,6 +576,26 @@ serviceCards.forEach(card => {
 
 // ===== FLOATING CHAT ICON =====
 (function () {
+    const WHATSAPP_URL = 'https://wa.me/919051867095?text=' + encodeURIComponent(
+        "Hello, I'm interested in your leather products."
+    );
+    const style = document.createElement('style');
+    style.textContent = `
+        .back-to-top { position:fixed; bottom:105px; right:35px; width:50px; height:50px; border:0; border-radius:50%; background:linear-gradient(135deg,#6366f1,#a855f7); color:#fff; cursor:pointer; font-size:1.2rem; box-shadow:0 4px 20px rgba(99,102,241,.4); z-index:999; opacity:0; visibility:hidden; transform:translateY(10px); transition:all .3s ease; } .back-to-top.show { opacity:1; visibility:visible; transform:translateY(0); }
+        .floating-whatsapp { position:fixed; right:30px; bottom:30px; z-index:9999; width:60px; height:60px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:#25d366; color:#fff; font-size:31px; text-decoration:none; box-shadow:0 8px 24px rgba(37,211,102,.38); transition:transform .25s ease,box-shadow .25s ease; animation:whatsappFloat 3.5s ease-in-out infinite; } .floating-whatsapp:hover,.floating-whatsapp:focus-visible { color:#fff; transform:translateY(-4px) scale(1.08); box-shadow:0 12px 30px rgba(37,211,102,.52); } .floating-whatsapp::before { content:'Chat with us on WhatsApp'; position:absolute; right:72px; width:max-content; padding:9px 12px; border-radius:8px; background:#17212b; color:#fff; font:600 12px/1.2 Inter,-apple-system,BlinkMacSystemFont,sans-serif; opacity:0; pointer-events:none; transform:translateX(6px); transition:opacity .2s ease,transform .2s ease; } .floating-whatsapp:hover::before,.floating-whatsapp:focus-visible::before { opacity:1; transform:translateX(0); } @keyframes whatsappFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } } @media (max-width:768px) { .back-to-top { bottom:87px; right:23px; width:46px; height:46px; } .floating-whatsapp { right:20px; bottom:20px; width:54px; height:54px; font-size:28px; } .floating-whatsapp::before { display:none; } }
+    `;
+    document.head.appendChild(style);
+    if (!document.querySelector('.whatsapp-float, .floating-whatsapp')) {
+        const whatsapp = document.createElement('a');
+        whatsapp.className = 'floating-whatsapp'; whatsapp.href = WHATSAPP_URL;
+        whatsapp.target = '_blank'; whatsapp.rel = 'noopener';
+        whatsapp.setAttribute('aria-label', 'Chat with us on WhatsApp');
+        whatsapp.innerHTML = '<i class="fab fa-whatsapp" aria-hidden="true"></i>';
+        document.body.appendChild(whatsapp);
+    }
+    document.querySelectorAll('a[href$="#contact"]').forEach((link) => { link.href = WHATSAPP_URL; link.target = '_blank'; link.rel = 'noopener'; });
+    return;
+
     // 1. Create and inject dynamic styles
     const styles = `
         /* Back to Top Button */
