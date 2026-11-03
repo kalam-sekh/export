@@ -532,6 +532,8 @@
 const backToTopButton = document.createElement('button');
 backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
 backToTopButton.classList.add('back-to-top');
+backToTopButton.type = 'button';
+backToTopButton.setAttribute('aria-label', 'Back to top');
 document.body.appendChild(backToTopButton);
 
 window.addEventListener('scroll', () => {

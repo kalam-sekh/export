@@ -1,5 +1,15 @@
 // Product category filter and inquiry form for the export site
 (function () {
+    // Keep secondary footer navigation compact on phones without hiding it.
+    const footerDisclosures = document.querySelectorAll('.footer-disclosure');
+    const syncFooterDisclosures = () => {
+        footerDisclosures.forEach((disclosure) => {
+            disclosure.open = window.innerWidth > 600;
+        });
+    };
+    syncFooterDisclosures();
+    window.addEventListener('resize', syncFooterDisclosures);
+
     // Product category filter
     const buttons = document.querySelectorAll('.product-filter__btn');
     const cards = document.querySelectorAll('.lp-product-card');

@@ -18,7 +18,6 @@
     align-items: center;
     column-gap: 24px;
 }
-
 .page-with-home-bg .logo {
     justify-self: start;
 }
@@ -947,6 +946,90 @@ p, li, .section-desc, .hero-subtitle, .footer-col ul li a,
     }
 }
 
+/* ===== MOBILE FOOTER & ACTIONS =====
+   The site footer remains complete, but secondary navigation collapses into
+   compact, accessible disclosures on a phone instead of becoming a long list. */
+@media (max-width: 600px) {
+    .container { padding-left: 20px; padding-right: 20px; }
+
+    .footer {
+        padding: 24px 0 max(12px, env(safe-area-inset-bottom));
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-bottom: 16px;
+    }
+
+    .footer-col--brand {
+        padding-bottom: 20px;
+    }
+
+    .footer-col--brand p {
+        max-width: 34rem;
+        margin-bottom: 12px;
+    }
+
+    .footer-disclosure,
+    .footer-col:not(.footer-col--brand) {
+        border-top: 1px solid rgba(15, 23, 42, 0.09);
+        padding: 0;
+    }
+
+    .footer-disclosure summary,
+    .footer-col:not(.footer-col--brand) > h4 {
+        min-height: 52px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .footer-disclosure summary { cursor: pointer; }
+    .footer-disclosure summary > i {
+        display: block;
+        color: var(--accent);
+        font-size: 0.72rem;
+        transition: transform 0.2s ease;
+    }
+    .footer-disclosure[open] summary > i { transform: rotate(180deg); }
+    .footer-disclosure ul { padding: 0 0 12px; }
+
+    .footer-contact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 12px;
+        padding: 0 0 14px;
+    }
+    .footer-contact li {
+        margin: 0 0 9px !important;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .footer-bottom {
+        padding: 14px 0 0;
+        gap: 4px;
+        line-height: 1.4;
+    }
+
+    .whatsapp-float {
+        left: auto;
+        right: 18px;
+        bottom: calc(18px + env(safe-area-inset-bottom));
+        width: 52px;
+        height: 52px;
+    }
+
+    .back-to-top {
+        right: 21px !important;
+        bottom: calc(80px + env(safe-area-inset-bottom)) !important;
+        width: 44px !important;
+        height: 44px !important;
+    }
+}
+
 /* ===== PRODUCT CARD SWIPEABLE GALLERY =====
    Multiple images per product card, swiped or tapped through dots.
    Appended last so it wins over the earlier "contain" sizing rules. */
@@ -1135,5 +1218,157 @@ p, li, .section-desc, .hero-subtitle, .footer-col ul li a,
 @media (max-width: 600px) {
     .lp-product-card {
         height: 360px;
+    }
+}
+
+/* ========================================
+   VALUED CUSTOMERS & CORPORATE CLIENTS
+   ======================================== */
+.customers-section {
+    position: relative;
+    padding: 100px 0;
+    z-index: 1;
+}
+
+.customers-showcase {
+    max-width: 960px;
+    margin: 48px auto 0;
+}
+
+.customer-feature-card {
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.customer-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 55px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
+    border-color: rgba(217, 119, 6, 0.35);
+}
+
+.customer-feature-card__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #b45309;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.28);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    margin-bottom: 24px;
+}
+
+.customer-feature-card__inner {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    gap: 36px;
+    align-items: center;
+}
+
+.customer-feature-card__logo-wrap {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    aspect-ratio: 16 / 10;
+}
+
+.customer-feature-card__logo {
+    max-width: 100%;
+    max-height: 125px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.customer-feature-card__category {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+}
+
+.customer-feature-card__title {
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.customer-feature-card__subtitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+
+.customer-feature-card__desc {
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-bottom: 22px;
+}
+
+.customer-feature-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.customer-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(15, 23, 42, 0.04);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.customer-meta-tag i {
+    color: var(--amber);
+}
+
+@media (max-width: 768px) {
+    .customers-section {
+        padding: 70px 0;
+    }
+    .customer-feature-card {
+        padding: 26px 20px;
+    }
+    .customer-feature-card__inner {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        text-align: center;
+    }
+    .customer-feature-card__logo-wrap {
+        max-width: 260px;
+        margin: 0 auto;
+    }
+    .customer-feature-card__meta {
+        justify-content: center;
     }
 }
