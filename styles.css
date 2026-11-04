@@ -300,6 +300,8 @@ a {
     -webkit-text-fill-color: transparent;
 }
 
+
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -3646,4 +3648,192 @@ html, body {
 .cta .btn--white, .cta-box .btn--white, .cta__content .btn--white {
     background: #0f172a !important;
     color: #ffffff !important;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap');
+
+/* ===== MATCHING ACTION BUTTONS (SAME SIZE & SHAPE) ===== */
+.foundation-nav__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.language-switcher,
+.foundation-nav__actions .btn,
+.foundation-nav__actions .btn--hero-secondary,
+.navbar .nav-link--cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 20px !important;
+    border-radius: 9999px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    user-select: none !important;
+}
+
+/* Light Theme Styling - Perfectly Matching */
+.language-switcher {
+    border: 1px solid rgba(15, 23, 42, 0.16) !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    color: #0f172a !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06) !important;
+    margin: 0 !important;
+    gap: 8px !important;
+    z-index: 100;
+}
+
+.language-switcher:hover {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.28) !important;
+    color: #0f172a !important;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+.language-switcher .lang-globe {
+    font-size: 1rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+}
+
+.language-switcher .lang-text {
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.2px;
+}
+
+/* Dark Theme / Export Site Styling */
+.page-with-home-bg .language-switcher,
+[data-theme="dark"] .language-switcher,
+body.dark-mode .language-switcher {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    color: #f8fafc !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+}
+
+.page-with-home-bg .language-switcher:hover,
+[data-theme="dark"] .language-switcher:hover,
+body.dark-mode .language-switcher:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* RTL Global Rules */
+html[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] body {
+    font-family: 'Tajawal', 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .foundation-nav {
+    direction: rtl;
+}
+
+html[dir="rtl"] .foundation-nav__actions {
+    direction: rtl;
+    justify-content: flex-start;
+}
+
+html[dir="rtl"] .navbar .container {
+    direction: rtl;
+}
+
+html[dir="rtl"] .hero-foundation__copy,
+html[dir="rtl"] .product-hero__content,
+html[dir="rtl"] .section-header,
+html[dir="rtl"] .lp-hero__content {
+    text-align: right;
+}
+
+html[dir="rtl"] .hero-foundation__cta,
+html[dir="rtl"] .hero-buttons,
+html[dir="rtl"] .nav-actions {
+    justify-content: flex-start;
+}
+
+html[dir="rtl"] .nav-dropdown {
+    right: 0;
+    left: auto;
+    text-align: right;
+}
+
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select {
+    text-align: right;
+    direction: rtl;
+}
+
+html[dir="rtl"] .fa-arrow-right,
+html[dir="rtl"] .fa-chevron-right,
+html[dir="rtl"] .fa-angle-right {
+    transform: scaleX(-1);
+}
+
+html[dir="rtl"] .fa-arrow-left,
+html[dir="rtl"] .fa-chevron-left,
+html[dir="rtl"] .fa-angle-left {
+    transform: scaleX(-1);
+}
+
+@media (max-width: 768px) {
+    .foundation-nav {
+        grid-template-columns: 1fr auto auto !important;
+    }
+    .foundation-nav .language-switcher {
+        order: 2;
+        margin-right: 8px !important;
+    }
+    .foundation-nav__toggle {
+        order: 3;
+    }
+    .navbar .language-switcher {
+        margin-left: auto !important;
+        margin-right: 12px !important;
+    }
+    html[dir="rtl"] .navbar .language-switcher {
+        margin-right: auto !important;
+        margin-left: 12px !important;
+    }
+}
+
+/* Fix telephone numbers in RTL */
+html[dir="rtl"] a[href^="tel:"],
+html[dir="rtl"] a[href*="wa.me"],
+html[dir="rtl"] .footer-contact li a,
+html[dir="rtl"] .footer-col ul li a[href^="tel:"] {
+    direction: ltr !important;
+    display: inline-block !important;
+    unicode-bidi: isolate !important;
+}
+
+html[dir="rtl"] .footer-col ul li,
+html[dir="rtl"] .footer-contact li {
+    unicode-bidi: isolate;
 }
