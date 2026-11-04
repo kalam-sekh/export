@@ -14,9 +14,17 @@
     const buttons = document.querySelectorAll('.product-filter__btn');
     const cards = document.querySelectorAll('.lp-product-card');
 
+    // Cache original English category on card dataset so filtering works in both English & Arabic
+    cards.forEach(card => {
+        const category = card.querySelector('.lp-product-card__category');
+        if (category && !card.dataset.category) {
+            card.dataset.category = category.textContent.trim();
+        }
+    });
+
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const filter = btn.dataset.filter;
+            const filter = (btn.dataset.filter || '').trim().toLowerCase();
 
             buttons.forEach(b => {
                 const active = b === btn;
@@ -25,8 +33,8 @@
             });
 
             cards.forEach(card => {
-                const category = card.querySelector('.lp-product-card__category');
-                const match = filter === 'all' || (category && category.textContent.trim() === filter);
+                const cardCat = (card.dataset.category || (card.querySelector('.lp-product-card__category') ? card.querySelector('.lp-product-card__category').textContent : '')).trim().toLowerCase();
+                const match = filter === 'all' || cardCat === filter;
                 card.hidden = !match;
             });
         });
