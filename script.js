@@ -1575,7 +1575,7 @@ console.log('%c🚀 Welcome to AK International! ', 'background: linear-gradient
         let node;
         while ((node = walker.nextNode())) {
             const parent = node.parentElement;
-            if (!parent || parent.closest('script, style, code, pre, noscript, .footer-bottom, .footer-bottom__tech')) continue;
+            if (!parent || parent.closest('script, style, code, pre, noscript, .footer-bottom, .footer-bottom__tech, .language-switcher')) continue;
             translateTextNode(node, isAr);
         }
 
@@ -1595,32 +1595,56 @@ console.log('%c🚀 Welcome to AK International! ', 'background: linear-gradient
     }
 
     function initSwitcher() {
-        const nav = document.querySelector('.foundation-nav');
-        const navbarContainer = document.querySelector('.navbar .container');
-        const target = nav || navbarContainer || document.querySelector('nav');
-        if (!target) return;
-
-        if (!document.querySelector('.language-switcher')) {
-            const button = document.createElement('button');
-            button.className = 'language-switcher';
-            button.type = 'button';
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
-            });
-
-            const navActions = nav ? nav.querySelector('.foundation-nav__actions') : null;
-            const hamburger = target.querySelector('.hamburger, .foundation-nav__toggle');
-
-            if (navActions) {
-                navActions.insertBefore(button, navActions.firstChild);
-            } else if (hamburger) {
-                target.insertBefore(button, hamburger);
-            } else {
-                target.appendChild(button);
-            }
+        if (document.querySelector('.language-switcher')) {
+            applyLanguage(currentLang);
+            return;
         }
 
+        const button = document.createElement('button');
+        button.className = 'language-switcher';
+        button.type = 'button';
+        button.setAttribute('aria-label', currentLang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية');
+        button.setAttribute('title', currentLang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية');
+        button.innerHTML = currentLang === 'ar' 
+            ? '<span class="lang-globe">🌐</span> <span class="lang-text">English</span>' 
+            : '<span class="lang-globe">🌐</span> <span class="lang-text">العربية</span>';
+
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+        });
+
+        // 1. Foundation Nav actions (tech/index.html & web/index.html)
+        const foundationActions = document.querySelector('.foundation-nav__actions');
+        if (foundationActions) {
+            foundationActions.appendChild(button);
+            applyLanguage(currentLang);
+            return;
+        }
+
+        // 2. Standard Nav with .navbar .container
+        const navContainer = document.querySelector('.navbar .container, nav .container');
+        if (navContainer) {
+            const toggle = navContainer.querySelector('.hamburger, .navbar-toggler, .foundation-nav__toggle');
+            if (toggle) {
+                navContainer.insertBefore(button, toggle);
+            } else {
+                navContainer.appendChild(button);
+            }
+            applyLanguage(currentLang);
+            return;
+        }
+
+        // 3. Fallback: attach to nav directly
+        const nav = document.querySelector('.foundation-nav, .navbar, nav');
+        if (nav) {
+            const toggle = nav.querySelector('.hamburger, .navbar-toggler, .foundation-nav__toggle');
+            if (toggle) {
+                nav.insertBefore(button, toggle);
+            } else {
+                nav.appendChild(button);
+            }
+        }
         applyLanguage(currentLang);
     }
 
