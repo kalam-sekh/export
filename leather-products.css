@@ -9,27 +9,36 @@
 
 .page-with-home-bg .navbar .container {
     width: 100%;
-    max-width: none;
-    margin: 0;
+    max-width: 1400px;
+    margin: 0 auto;
     padding-left: 32px;
     padding-right: 32px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+    display: flex;
     align-items: center;
-    column-gap: 24px;
+    justify-content: space-between;
+    position: relative;
 }
 .page-with-home-bg .logo {
-    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    z-index: 2;
 }
 
-.page-with-home-bg .nav-menu {
-    justify-content: center;
-    min-width: 0;
-    flex-wrap: wrap;
-}
-
-.page-with-home-bg .hamburger {
-    justify-self: end;
+@media (min-width: 1025px) {
+    .page-with-home-bg .nav-menu {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 1 !important;
+        width: auto !important;
+    }
+    .page-with-home-bg .hamburger {
+        display: none !important;
+    }
 }
 
 .page-with-home-bg .section,
@@ -901,19 +910,33 @@ p, li, .section-desc, .hero-subtitle, .footer-col ul li a,
 /* Floating WhatsApp */
 .whatsapp-float {
     position: fixed;
-    left: 20px;
-    bottom: 20px;
+    right: 30px;
+    bottom: 30px;
     z-index: 900;
-    width: 56px;
-    height: 56px;
-    display: grid;
-    place-items: center;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     background: #25d366;
     color: #ffffff;
     font-size: 1.6rem;
     box-shadow: 0 10px 28px rgba(37, 211, 102, 0.4);
     transition: transform 0.25s ease;
+}
+
+.whatsapp-float i,
+.whatsapp-float svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+html[dir="rtl"] .whatsapp-float {
+    right: auto;
+    left: 30px;
 }
 
 .whatsapp-float:hover {
